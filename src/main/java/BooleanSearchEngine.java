@@ -48,6 +48,9 @@ public class BooleanSearchEngine implements SearchEngine {
 
     @Override
     public List<PageEntry> search(String word) {
-        return map.get(word);
+        if (map.containsKey(word)) {
+            return map.get(word);
+        }
+        return Collections.emptyList();
     }
 }
