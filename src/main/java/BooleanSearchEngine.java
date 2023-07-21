@@ -29,7 +29,6 @@ public class BooleanSearchEngine implements SearchEngine {
                         if (map.containsKey(word)) {
                             List<PageEntry> list = map.get(word);
                             list.add(new PageEntry(file.getName(), i + 1, freqs.get(word)));
-                            list.sort(PageEntry::compareTo);
                             map.replace(word, list);
                         } else {
                             List<PageEntry> list = new ArrayList<>();
@@ -39,6 +38,11 @@ public class BooleanSearchEngine implements SearchEngine {
                     }
                 }
             }
+        }
+        for (var word : map.keySet()) {
+            List<PageEntry> list = map.get(word);
+            list.sort(PageEntry::compareTo);
+            map.replace(word, list);
         }
     }
 
