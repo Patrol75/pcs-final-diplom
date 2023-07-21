@@ -17,7 +17,7 @@ public class Main {
                 ) {
                     GsonBuilder builder = new GsonBuilder();
                     Gson gson = builder.create();
-                    out.println(gson.toJson(engine.search(in.readLine())));
+                    out.println(gson.toJson(engine.search(in.readLine().toLowerCase())));
                 }
             }
         } catch (IOException e) {
